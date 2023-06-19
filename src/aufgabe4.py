@@ -3,11 +3,12 @@ import datetime
 import psutil
 import matplotlib.pyplot as plt
 import threading
+import os
 
 
 # Verbindung zur Datenbank herstellen
-connectionString = "mongodb+srv://lucibluc:luci69@cluster0.rtex13l.mongodb.net/?retryWrites=true&w=majority"
-db = Database(connectionString)
+connectionstring = os.environ.get("CONNECTION_STRING")
+db = Database(connectionstring)
 # Eine Sammlung ("Collection") in der Datenbank abrufen
 col = db.get_collection("Power", "check")
 
