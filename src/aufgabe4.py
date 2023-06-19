@@ -2,6 +2,7 @@ from db import Database
 import datetime
 import psutil
 import matplotlib.pyplot as plt
+import threading
 
 connectionString = "mongodb+srv://lucibluc:luci69@cluster0.rtex13l.mongodb.net/?retryWrites=true&w=majority"
 db = Database(connectionString)
@@ -39,6 +40,7 @@ class Power:
         plt.xlabel('Time')
         plt.ylabel('Usage')
         plt.legend()
+        threading.Timer(1.0, plt.close).start()
         plt.show()
 
 def power_stats():
@@ -57,7 +59,8 @@ def power_stats():
         print("Timestamp: {}".format(power.timestamp))
         print("---------------------------------")
 
+        power = Power(None, None, None)
+        power.plt()
+
 
 power_stats()
-power = Power(None, None, None)
-power.plt()
