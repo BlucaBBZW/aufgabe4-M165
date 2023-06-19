@@ -7,8 +7,8 @@ import os
 
 
 # Verbindung zur Datenbank herstellen
-connection_string = os.environ.get("CONNECTION_STRING")
-db = Database(connection_string)
+connectionString = os.environ.get("CONNECTION_STRING")
+db = Database(connectionString)
 # Eine Sammlung ("Collection") in der Datenbank abrufen
 col = db.get_collection("Power", "check")
 
