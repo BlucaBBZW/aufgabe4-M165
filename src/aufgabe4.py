@@ -31,7 +31,7 @@ class Power:
             col.delete_many({'_id': {'$in': [log['_id'] for log in oldest_logs]}})
 
     def plt(self):
-        # Zeigt ein Diagramm mit den CPU- und RAM-Daten der letzten 10000 Datensätze an.
+        # Zeigt ein Diagramm mit den CPU- und RAM-Daten.
         logs = col.find().sort('timestamp', 1).limit(10000)
         cpu_values = []
         ram_values = []
