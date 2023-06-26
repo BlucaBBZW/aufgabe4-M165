@@ -7,7 +7,7 @@ import os
 
 
 # Verbindung zur Datenbank herstellen
-connectionString = os.environ.get("CONNECTION_STRING")
+connectionString = os.environ.get("CONNECTIONSTRING")
 db = Database(connectionString)
 # Eine Sammlung ("Collection") in der Datenbank abrufen
 col = db.get_collection("Power", "check")
@@ -42,8 +42,8 @@ class Power:
             ram_values.append(log['ram_used'])
             timestamps.append(log['timestamp'])
 
-        plt.plot(timestamps, cpu_values, color='red', label='CPU Usage in %')
-        plt.plot(timestamps, ram_values, color='blue', label='RAM Usage in MB')
+        plt.plot(timestamps, cpu_values, color='green', label='CPU Usage in %')
+        plt.plot(timestamps, ram_values, color='purple', label='RAM Usage in MB')
         plt.xlabel('Time')
         plt.ylabel('Usage')
         plt.legend()
